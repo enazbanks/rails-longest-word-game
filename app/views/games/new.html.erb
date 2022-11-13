@@ -1,1 +1,25 @@
-<p>This is new page</p>
+<h1>New Game</h1>
+
+ <%= @letters %>
+
+<h3>What is the longest word you can find?</h3>
+
+<form action="/score" method="POST" data-turbo="false">
+  <input type="text" name="word">
+  <input type="submit" value="Play!">
+   <%= hidden_field_tag :authenticity_token, form_authenticity_token %>
+   <%= hidden_field_tag 'letters', @letters %>
+</form>
+
+
+<%# <style>
+.letter_container {
+  width:25%;
+  display: flex;
+  flex-direction: row;
+}
+.letter{
+  justify-content:space-between;
+  flex-grow:1;
+}
+</style> %>
